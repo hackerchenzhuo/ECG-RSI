@@ -1,8 +1,8 @@
-<img src="assets/ant-group-symbol.png" height="28" alt="Ant Group">
+<img src="assets/ecg-rsi-mark.svg" width="72" alt="ECG-RSI">
 
 # ECG-RSI
 
-**Recursive Self-Improvement through Targeted ECG Waveform Evolution**
+**Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution**
 
 Turn learner errors into the next generation of verified ECG supervision.
 
@@ -29,6 +29,10 @@ The retained intervention shifts from direct reinforcement to confusion contrast
 
 Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 scores on a 0–100 scale. [Experiment details.](https://pork-pay.github.io/ECG-RSI/#findings)
 
+[![Original paper Figure 4: benchmark and strategy comparisons](assets/benchmark-comparison.png)](assets/benchmark-comparison.pdf)
+
+*Original paper Figure 4. Accuracy, F1, validation and strategy trajectories across rounds; open the figure for details.*
+
 ## Authors
 
 <p>
@@ -44,6 +48,13 @@ Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 sco
       <span><a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup></span>,
       <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>3,4,†</sup></span>
     </p>
+
+<p>
+  <img src="assets/zhejiang-university-symbol.png" height="28" alt="Zhejiang University"> &nbsp;
+  <img src="assets/ant-group-symbol.png" height="28" alt="Ant Group"> &nbsp;
+  <img src="assets/shanghai-ai-lab-symbol.png" height="25" alt="Shanghai Artificial Intelligence Laboratory"> &nbsp;
+  <img src="assets/shanghai-jiao-tong-symbol.png" height="28" alt="Shanghai Jiao Tong University">
+</p>
 
 <p>
       <sup>1</sup> Zhejiang University · <sup>2</sup> Ant Group ·
@@ -64,7 +75,7 @@ Related: [MedEvo](https://pork-pay.github.io/MedEvo/) preserves and repairs medi
 
 ```bibtex
 @misc{wang2026ecgrsi,
-  title = {ECG-RSI: Recursive Self-Improvement through Targeted ECG Waveform Evolution},
+  title = {ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution},
   author = {Wang, Xiaoliang and Chen, Zhuo and Zheng, Chuanyang and Lao, Jiangwei and Wang, Quanbin and Lin, Honglin and Liu, Jiajia and Lu, Zhihong and Jin, Hao and Wang, Jian and Wu, Lijun},
   year = {2026},
   url = {https://pork-pay.github.io/ECG-RSI/}

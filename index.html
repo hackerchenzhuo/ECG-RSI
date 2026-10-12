@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ECG-RSI | Targeted ECG Waveform Evolution</title>
+  <title>ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution</title>
   <meta name="description" content="ECG-RSI turns learner errors into targeted ECG supervision: edit and remeasure waveforms, compare training interventions, and evaluate transfer to external benchmarks.">
   <meta name="theme-color" content="#173956">
   <link rel="canonical" href="https://pork-pay.github.io/ECG-RSI/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ECG-RSI: Targeted ECG Waveform Evolution">
+  <meta property="og:title" content="ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution">
   <meta property="og:description" content="Verified waveform synthesis and feedback-guided comparison of training interventions.">
   <meta property="og:url" content="https://pork-pay.github.io/ECG-RSI/">
   <meta property="og:image" content="https://pork-pay.github.io/ECG-RSI/assets/case-pr.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="citation_title" content="ECG-RSI: Recursive Self-Improvement through Targeted ECG Waveform Evolution">
+  <meta name="citation_title" content="ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution">
   <meta name="citation_author" content="Xiaoliang Wang">
   <meta name="citation_author" content="Zhuo Chen">
   <meta name="citation_author" content="Chuanyang Zheng">
@@ -35,14 +35,14 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><nav class="nav-wrap" aria-label="Main navigation">
-  <a class="ant-brand" href="https://www.antgroup.com/" aria-label="Ant Group"><img src="assets/ant-group-symbol.png" alt="Ant Group" width="117" height="160"></a>
-  <a class="nav-project" href="#top">ECG-RSI</a>
+  <a class="project-brand" href="#top"><img src="assets/ecg-rsi-mark.svg" alt="" width="71" height="52"><span>ECG-RSI</span></a>
   <div class="nav-links"><a href="#evolution">Evolution</a><a href="#findings">Findings</a><a href="#resources">Resources</a></div>
   <a class="nav-paper" href="papers/ecg-rsi.pdf">Paper ↗</a>
 </nav></header>
 <main id="main">
   <section class="hero container" id="top" aria-labelledby="paper-title">
-    <h1 id="paper-title">ECG-RSI<span>Recursive Self-Improvement through Targeted ECG Waveform Evolution</span></h1>
+    <h1 id="paper-title" aria-label="ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution"><span class="project-name"><img src="assets/ecg-rsi-mark.svg" alt="" width="100" height="73">ECG-RSI</span>
+      <span class="title-detail">Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution</span></h1>
     <p class="hero-idea">Turn learner errors into the next generation of verified ECG supervision.</p>
     <div class="hero-links"><a href="papers/ecg-rsi.pdf">Paper ↗</a><a href="https://github.com/pork-pay/ECG-RSI">GitHub ↗</a><a href="#authors">Authors ↓</a></div>
   </section>
@@ -139,8 +139,8 @@
       <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>3,4,†</sup></span>
     </div>
     <ol class="affiliations" aria-label="Author affiliations">
-      <li><sup>1</sup> Zhejiang University</li><li><sup>2</sup> Ant Group</li>
-      <li><sup>3</sup> Shanghai Artificial Intelligence Laboratory</li><li><sup>4</sup> Shanghai Jiao Tong University</li>
+      <li><span class="affiliation-mark"><img src="assets/zhejiang-university-symbol.png" alt="" width="160" height="160"></span><span><sup>1</sup> Zhejiang University</span></li><li><span class="affiliation-mark"><img src="assets/ant-group-symbol.png" alt="" width="117" height="160"></span><span><sup>2</sup> Ant Group</span></li>
+      <li><span class="affiliation-mark"><img src="assets/shanghai-ai-lab-symbol.png" alt="" width="160" height="70"></span><span><sup>3</sup> Shanghai Artificial Intelligence Laboratory</span></li><li><span class="affiliation-mark"><img src="assets/shanghai-jiao-tong-symbol.png" alt="" width="128" height="128"></span><span><sup>4</sup> Shanghai Jiao Tong University</span></li>
     </ol>
     <p class="author-note">* Equal contribution. &nbsp; † Corresponding author.</p>
   </section>
@@ -152,6 +152,11 @@
       <article class="transfer-insight"><h3>External gains diminish.</h3><div class="gain-bars" aria-label="Successive external S7 gains: R1 13.07, R2 3.01, R3 0.38 points"><div><span>R1</span><i style="--gain:100%"></i><strong>+13.07</strong></div><div><span>R2</span><i style="--gain:23.03%"></i><strong>+3.01</strong></div><div><span>R3</span><i style="--gain:2.91%"></i><strong>+0.38</strong></div></div><p>Seven-benchmark mean gain (points).</p></article>
     </div>
     <div class="headline-results"><div><strong>+21.47<span>pp</span></strong><span>Mean QA accuracy</span></div><div><strong>+9.77<span>points</span></strong><span>Mean classification F1</span></div><p>Qwen3.5-35B-A3B · three rounds<br> Seven benchmarks · reported R-A trajectory</p></div>
+    <figure class="paper-comparison" id="benchmark-comparison">
+      <div class="comparison-heading"><h3>Compare the benchmark trajectories.</h3><a href="assets/benchmark-comparison.pdf" target="_blank" rel="noopener">Open original figure ↗</a></div>
+      <div class="comparison-scroll" tabindex="0" role="region" aria-label="Figure 4 benchmark comparisons; scroll horizontally on small screens"><a href="assets/benchmark-comparison.pdf" target="_blank" rel="noopener"><img src="assets/benchmark-comparison.png" width="1584" height="467" alt="Original paper Figure 4: question-answering accuracy, classification F1, validation accuracy, and tree, uniform-allocation and chain strategy trajectories across R0 to R3." loading="lazy"></a></div>
+      <figcaption>Paper Fig. 4. Accuracy, F1, validation and strategy comparisons across rounds. S7 is the equal-weight mean of seven benchmark scores. <span class="scroll-hint">Scroll to compare panels.</span></figcaption>
+    </figure>
     <details class="detail-block" id="experiment-details"><summary>Experiment details and benchmark scores</summary><div class="detail-content"><p>S7 equally weights four accuracy and three classification F1 scores on a 0–100 scale. The main trajectory rises from 30.15 to 46.61. Mean QA accuracy increases from 34.57% to 56.04%; mean F1 increases from 24.27 to 34.03. Gains are computed before rounding.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Round-by-round benchmark table; scroll horizontally on small screens">
           <table><caption>ECG-RSI main trajectory (R-A)</caption><thead><tr><th scope="col">Benchmark</th><th scope="col">Metric</th><th scope="col">R0</th><th scope="col">R1</th><th scope="col">R2</th><th scope="col">R3</th></tr></thead><tbody>
             <tr><th scope="row">MMMU-ECG</th><td>Accuracy</td><td>42.00</td><td>48.00</td><td>56.00</td><td>57.50</td></tr>
@@ -171,7 +176,7 @@
     <div class="resource-links"><a href="papers/ecg-rsi.pdf">Paper ↗</a><a href="https://pork-pay.github.io/ECG-RSI/">Project ↗</a><a href="https://github.com/pork-pay/ECG-RSI">GitHub ↗</a><a href="papers/ECG_RSI_arXiv.zip">LaTeX ↓</a><a href="https://pork-pay.github.io/MedEvo/">Related: MedEvo ↗</a></div>
     <p class="availability">Paper and project materials are available. Training/synthesis implementation, model weights and training data are not included.</p>
     <details class="detail-block citation" id="cite"><summary>Citation</summary><div class="detail-content"><button class="copy-button" type="button" data-copy="bibtex">Copy BibTeX</button><pre><code id="bibtex">@misc{wang2026ecgrsi,
-  title = {ECG-RSI: Recursive Self-Improvement through Targeted ECG Waveform Evolution},
+  title = {ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution},
   author = {Wang, Xiaoliang and Chen, Zhuo and Zheng, Chuanyang and Lao, Jiangwei and Wang, Quanbin and Lin, Honglin and Liu, Jiajia and Lu, Zhihong and Jin, Hao and Wang, Jian and Wu, Lijun},
   year = {2026},
   url = {https://pork-pay.github.io/ECG-RSI/}
