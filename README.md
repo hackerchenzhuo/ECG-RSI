@@ -1,90 +1,66 @@
-<div align="center">
-
-<p>
-  <img src="assets/zhejiang-university-symbol.png" height="40" alt="Zhejiang University"> &nbsp;&nbsp;&nbsp;
-  <img src="assets/ant-group-symbol.png" height="40" alt="Ant Group"> &nbsp;&nbsp;&nbsp;
-  <img src="assets/shanghai-ai-lab-symbol.png" height="34" alt="Shanghai Artificial Intelligence Laboratory"> &nbsp;&nbsp;&nbsp;
-  <img src="assets/shanghai-jiao-tong-symbol.png" height="40" alt="Shanghai Jiao Tong University">
-</p>
+<img src="assets/ant-group-symbol.png" height="28" alt="Ant Group">
 
 # ECG-RSI
 
-### Recursive Self-Improvement through Targeted ECG Waveform Evolution
+**Recursive Self-Improvement through Targeted ECG Waveform Evolution**
 
-[**Paper**](papers/ecg-rsi.pdf) · [**Project page**](https://pork-pay.github.io/ECG-RSI/) · [**GitHub**](https://github.com/pork-pay/ECG-RSI) · [**LaTeX source**](papers/ECG_RSI_arXiv.zip)
+Turn learner errors into the next generation of verified ECG supervision.
+
+[Paper](papers/ecg-rsi.pdf) · [Project page](https://pork-pay.github.io/ECG-RSI/) · [GitHub](https://github.com/pork-pay/ECG-RSI) · [LaTeX source](papers/ECG_RSI_arXiv.zip)
+
+[![ECG-RSI evolution: edit the waveform, verify supervision, compare interventions, and change the next batch.](assets/ecg-evolution.gif)](https://pork-pay.github.io/ECG-RSI/#evolution)
+
+**[Watch the evolution loop →](https://pork-pay.github.io/ECG-RSI/#evolution)**
+
+- **Verify the example.** Construction feedback repairs waveform operators and checks target and protected features.
+- **Compare ways to teach.** Learner errors propose interventions; matched branches and a separate selection set determine which to retain.
+- **Change the next batch.** The retained recipe guides subsequent synthesis and sampling.
+
+The animation illustrates the mechanism. The paper’s [recorded waveform example](https://pork-pay.github.io/ECG-RSI/#method) requests PR 300 ms and remeasures 298 ms, under its automatic measurement convention.
+
+## Reported findings
+
+The retained intervention shifts from direct reinforcement to confusion contrasts. Successive external S7 gains diminish: **+13.07 → +3.01 → +0.38** points.
+
+| Mean metric | Starting model | After three rounds |
+| --- | ---: | ---: |
+| QA accuracy | 34.57% | 56.04% |
+| Classification F1 | 24.27 | 34.03 |
+
+Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 scores on a 0–100 scale. [Experiment details.](https://pork-pay.github.io/ECG-RSI/#findings)
+
+## Authors
 
 <p>
-  <a href="https://openreview.net/profile?id=~Wang_Xiaoliang2">Xiaoliang Wang</a><sup>1,2,*</sup>,
-  <a href="https://openreview.net/profile?id=~Zhuo_Chen3">Zhuo Chen</a><sup>2,*</sup>,
-  <a href="https://openreview.net/profile?id=~Chuanyang_Zheng2">Chuanyang Zheng</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Jiangwei_Lao1">Jiangwei Lao</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Quanbin_Wang1">Quanbin Wang</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Honglin_Lin2">Honglin Lin</a><sup>3,4</sup>,
-  <a href="https://openreview.net/profile?id=~Jiajia_Liu1">Jiajia Liu</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Zhihong_Lu2">Zhihong Lu</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Hao_Jin4">Hao Jin</a><sup>1</sup>,
-  <a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup>,
-  <a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>3,4,†</sup>
-</p>
+      <span><a href="https://openreview.net/profile?id=~Wang_Xiaoliang2">Xiaoliang Wang</a><sup>1,2,*</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Zhuo_Chen3">Zhuo Chen</a><sup>2,*</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Chuanyang_Zheng2">Chuanyang Zheng</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jiangwei_Lao1">Jiangwei Lao</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Quanbin_Wang1">Quanbin Wang</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Honglin_Lin2">Honglin Lin</a><sup>3,4</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jiajia_Liu1">Jiajia Liu</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Zhihong_Lu2">Zhihong Lu</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Hao_Jin4">Hao Jin</a><sup>1</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>3,4,†</sup></span>
+    </p>
 
-<p><sup>1</sup> Zhejiang University · <sup>2</sup> Ant Group<br>
-<sup>3</sup> Shanghai Artificial Intelligence Laboratory · <sup>4</sup> Shanghai Jiao Tong University</p>
+<p>
+      <sup>1</sup> Zhejiang University · <sup>2</sup> Ant Group ·
+      <sup>3</sup> Shanghai Artificial Intelligence Laboratory · <sup>4</sup> Shanghai Jiao Tong University</p>
 
-<p><sup>*</sup> Equal contribution. &nbsp; <sup>†</sup> Corresponding author.</p>
+<sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.
 
-</div>
+## Materials
 
-## Which ECG example should the model learn from next?
+This repository provides the paper, LaTeX source and static project page. Training/synthesis implementation, model weights and training data are not included.
 
-**ECG-RSI turns learner errors into candidate training interventions, verifies their waveform evidence, and compares their value to the learner.** It connects two decisions: whether a generated example supports its answer, and whether training on that kind of example improves the current model.
+Preview locally: `python3 -m http.server 8000`, then open `http://localhost:8000`. No build step is required.
 
-- **Construction feedback:** remeasure edited ECGs, check target and protected features, and verify the question–answer pair. Failures guide repairs to the construction process.
-- **Learner feedback:** diagnose category, task, difficulty and confusion errors; propose training recipes; compare matched branches from the same parent on a separate selection set.
-- **External evaluation:** measure the retained learner on benchmarks outside generation and selection.
+Related: [MedEvo](https://pork-pay.github.io/MedEvo/) preserves and repairs medical reasoning trajectories.
 
-## From a target to measurable evidence
-
-A PR-prolongation request specifies a **300 ms** target. The pipeline lengthens the PQ segment, compensates in the TP segment to preserve the RR interval, and measures the result: **PR 298 ms; heart rate 74.6 bpm**. It constructs the question from those achieved measurements.
-
-![Recorded PR-prolongation example: original and edited ECGs with lead II details](assets/case-pr.png)
-
-*Recorded example from the paper appendix. Values follow the automatic measurement convention used in the data-construction pipeline.*
-
-The forward route derives supervision from an existing training ECG. The reverse route first constructs a requested feature contrast. Both routes check waveform evidence and question validity before accepting examples. [Explore the full framework and waveform operators on the project page.](https://pork-pay.github.io/ECG-RSI/#method)
-
-## What the experiments show
-
-1. **The preferred intervention changes.** The retained three-round trajectory starts with direct reinforcement of AV-block coverage and measurement questions, then selects regional STEMI contrasts and rhythm contrasts. Candidate comparison determines which proposed intervention to retain.
-2. **The content of added data matters.** From a shared checkpoint with S7 = 43.22, four configurations each add 10,000 questions. Their gains are +0.93 for ordinary training questions, +1.05 for forward synthesis, +2.34 for forward + reverse synthesis with fixed selection proportions, and +3.01 with feedback-guided selection.
-3. **Local improvement has diminishing external returns.** Feedback errors continue to fall while successive S7 gains shrink to +13.07, +3.01 and +0.38. Some individual benchmark scores decline in the final round.
-
-Reported main trajectory (**R-A**, Qwen3.5-35B-A3B):
-
-| Metric | Starting model | After three rounds | Change |
-| --- | ---: | ---: | ---: |
-| Mean QA accuracy, four benchmarks | 34.57% | 56.04% | +21.47 percentage points |
-| Mean classification F1, three benchmarks | 24.27 | 34.03 | +9.77 points |
-| S7, equal-weight seven-benchmark mean | 30.15 | 46.61 | +16.46 points |
-
-F1 and S7 use a 0–100 scale. Means and gains follow the paper; gains are calculated before rounding. These results describe the reported model, training protocol and benchmark suite. [Inspect the per-benchmark trajectory and experiment context.](https://pork-pay.github.io/ECG-RSI/#findings)
-
-## Repository contents
-
-| Location | Contents |
-| --- | --- |
-| [`papers/ecg-rsi.pdf`](papers/ecg-rsi.pdf) | Paper with experimental protocols and appendix |
-| [`papers/ECG_RSI_arXiv.zip`](papers/ECG_RSI_arXiv.zip) | LaTeX source package |
-| [`index.html`](index.html), [`assets/`](assets/) | Static project page, figures, styles and citation interaction |
-
-The current release contains the paper and project-page materials. **The synthesis and training implementation, model weights and training-data files are not included.**
-
-To preview the project page locally, run `python3 -m http.server 8000` from this directory and open `http://localhost:8000`. No build step or external frontend dependencies are required.
-
-## Related project
-
-[**MedEvo**](https://pork-pay.github.io/MedEvo/) preserves and repairs medical reasoning trajectories; ECG-RSI constructs and verifies waveform evidence. Both study how targeted supervision becomes useful to a learner.
-
-## Citation
+<details>
+<summary>Citation</summary>
 
 ```bibtex
 @misc{wang2026ecgrsi,
@@ -94,3 +70,5 @@ To preview the project page locally, run `python3 -m http.server 8000` from this
   url = {https://pork-pay.github.io/ECG-RSI/}
 }
 ```
+
+</details>

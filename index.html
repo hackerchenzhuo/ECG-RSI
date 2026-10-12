@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ECG-RSI | Targeted ECG Waveform Evolution</title>
   <meta name="description" content="ECG-RSI turns learner errors into targeted ECG supervision: edit and remeasure waveforms, compare training interventions, and evaluate transfer to external benchmarks.">
-  <meta name="theme-color" content="#0b6e75">
+  <meta name="theme-color" content="#173956">
   <link rel="canonical" href="https://pork-pay.github.io/ECG-RSI/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ECG-RSI: Targeted ECG Waveform Evolution">
@@ -34,24 +34,97 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <nav class="nav-wrap" aria-label="Main navigation">
-    <a class="brand" href="#top"><img src="assets/ecg-rsi-mark.svg" alt="" width="30" height="30">ECG-RSI</a>
-    <div class="nav-links"><a href="#example">Example</a><a href="#method">Method</a><a href="#findings">Findings</a><a href="#resources">Resources</a></div>
-    <a class="nav-paper" href="papers/ecg-rsi.pdf">Read the paper <span aria-hidden="true">↗</span></a>
-  </nav>
-</header>
+<header class="site-header"><nav class="nav-wrap" aria-label="Main navigation">
+  <a class="ant-brand" href="https://www.antgroup.com/" aria-label="Ant Group"><img src="assets/ant-group-symbol.png" alt="Ant Group" width="117" height="160"></a>
+  <a class="nav-project" href="#top">ECG-RSI</a>
+  <div class="nav-links"><a href="#evolution">Evolution</a><a href="#findings">Findings</a><a href="#resources">Resources</a></div>
+  <a class="nav-paper" href="papers/ecg-rsi.pdf">Paper ↗</a>
+</nav></header>
 <main id="main">
   <section class="hero container" id="top" aria-labelledby="paper-title">
-    <div class="institutions" aria-label="Participating institutions">
-      <a href="https://www.zju.edu.cn/" title="Zhejiang University"><img src="assets/zhejiang-university-symbol.png" alt="Zhejiang University" width="160" height="160"></a>
-      <a href="https://www.antgroup.com/" title="Ant Group"><img src="assets/ant-group-symbol.png" alt="Ant Group" width="117" height="160"></a>
-      <a class="wide-logo" href="https://www.shlab.org.cn/" title="Shanghai Artificial Intelligence Laboratory"><img src="assets/shanghai-ai-lab-symbol.png" alt="Shanghai Artificial Intelligence Laboratory" width="160" height="70"></a>
-      <a href="https://www.sjtu.edu.cn/" title="Shanghai Jiao Tong University"><img src="assets/shanghai-jiao-tong-symbol.png" alt="Shanghai Jiao Tong University" width="128" height="128"></a>
+    <h1 id="paper-title">ECG-RSI<span>Recursive Self-Improvement through Targeted ECG Waveform Evolution</span></h1>
+    <p class="hero-idea">Turn learner errors into the next generation of verified ECG supervision.</p>
+    <div class="hero-links"><a href="papers/ecg-rsi.pdf">Paper ↗</a><a href="https://github.com/pork-pay/ECG-RSI">GitHub ↗</a><a href="#authors">Authors ↓</a></div>
+  </section>
+
+  <section class="container evolution-section" id="evolution" aria-label="Animated ECG-RSI mechanism">
+    <div class="evolution-demo" id="ecg-demo" data-step="5">
+      <div class="demo-heading"><div><p class="eyebrow">An evolving synthesis agent</p><h2 id="demo-title">Generate contrasting examples.</h2></div><span class="phase-count" id="phase-count">06 / 06</span></div>
+      <div class="demo-network">
+        <div class="signal-workbench">
+          <svg id="signal-scene" viewBox="0 0 724 300" role="img" aria-labelledby="scene-title scene-desc">
+            <title id="scene-title">ECG construction and next-generation supervision</title>
+            <desc id="scene-desc">An illustrative waveform edit extends PR. Construction feedback repairs drift in the protected R–R interval. Verified questions train a learner; its errors propose candidate recipes, and comparison on a separate selection set determines the retained recipe and next examples.</desc>
+            <defs><pattern id="ecg-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e9eeef" stroke-width=".7"/></pattern><clipPath id="signal-clip"><rect x="12" y="36" width="696" height="235" rx="5"/></clipPath></defs>
+            <g id="wave-comparison" class="wave-comparison">
+              <rect x="12" y="36" width="696" height="235" fill="url(#ecg-grid)" rx="5"/>
+              <text class="scene-label" x="24" y="25">Source ECG</text>
+              <text class="scene-label edited-label" x="24" y="145">Edited ECG</text>
+              <g class="alignment-guides"><path d="M154 38V254 M364 38V254 M574 38V254"/></g>
+              <path class="reference-trace" id="source-wave" d="M22 92.00 L92.00 92.00 C98.00 92.00 97.00 80.00 106.00 78.00 C114.00 76.00 120.00 92.00 124.00 92.00 L142.00 92.00 L147.00 102.00 L154.00 44.00 L160.00 112.00 L167.00 92.00 L184.00 92.00 C198.00 92.00 201.00 70.00 215.00 68.00 C231.00 67.00 241.00 92.00 250.00 92.00 L302.00 92.00 C308.00 92.00 307.00 80.00 316.00 78.00 C324.00 76.00 330.00 92.00 334.00 92.00 L352.00 92.00 L357.00 102.00 L364.00 44.00 L370.00 112.00 L377.00 92.00 L394.00 92.00 C408.00 92.00 411.00 70.00 425.00 68.00 C441.00 67.00 451.00 92.00 460.00 92.00 L512.00 92.00 C518.00 92.00 517.00 80.00 526.00 78.00 C534.00 76.00 540.00 92.00 544.00 92.00 L562.00 92.00 L567.00 102.00 L574.00 44.00 L580.00 112.00 L587.00 92.00 L604.00 92.00 C618.00 92.00 621.00 70.00 635.00 68.00 C651.00 67.00 661.00 92.00 670.00 92.00"/>
+              <path class="ghost-trace" d="M22 213.00 L92.00 213.00 C98.00 213.00 97.00 201.00 106.00 199.00 C114.00 197.00 120.00 213.00 124.00 213.00 L142.00 213.00 L147.00 223.00 L154.00 165.00 L160.00 233.00 L167.00 213.00 L184.00 213.00 C198.00 213.00 201.00 191.00 215.00 189.00 C231.00 188.00 241.00 213.00 250.00 213.00 L302.00 213.00 C308.00 213.00 307.00 201.00 316.00 199.00 C324.00 197.00 330.00 213.00 334.00 213.00 L352.00 213.00 L357.00 223.00 L364.00 165.00 L370.00 233.00 L377.00 213.00 L394.00 213.00 C408.00 213.00 411.00 191.00 425.00 189.00 C441.00 188.00 451.00 213.00 460.00 213.00 L512.00 213.00 C518.00 213.00 517.00 201.00 526.00 199.00 C534.00 197.00 540.00 213.00 544.00 213.00 L562.00 213.00 L567.00 223.00 L574.00 165.00 L580.00 233.00 L587.00 213.00 L604.00 213.00 C618.00 213.00 621.00 191.00 635.00 189.00 C651.00 188.00 661.00 213.00 670.00 213.00"/>
+              <rect id="pr-region" class="pr-region" x="46" y="167" width="96" height="73" rx="3"/>
+              <g clip-path="url(#signal-clip)"><path class="edited-trace" id="edited-wave" d="M22 213.00 L46.00 213.00 C52.00 213.00 51.00 201.00 60.00 199.00 C68.00 197.00 74.00 213.00 78.00 213.00 L142.00 213.00 L147.00 223.00 L154.00 165.00 L160.00 233.00 L167.00 213.00 L184.00 213.00 C198.00 213.00 201.00 191.00 215.00 189.00 C231.00 188.00 241.00 213.00 250.00 213.00 L256.00 213.00 C262.00 213.00 261.00 201.00 270.00 199.00 C278.00 197.00 284.00 213.00 288.00 213.00 L352.00 213.00 L357.00 223.00 L364.00 165.00 L370.00 233.00 L377.00 213.00 L394.00 213.00 C408.00 213.00 411.00 191.00 425.00 189.00 C441.00 188.00 451.00 213.00 460.00 213.00 L466.00 213.00 C472.00 213.00 471.00 201.00 480.00 199.00 C488.00 197.00 494.00 213.00 498.00 213.00 L562.00 213.00 L567.00 223.00 L574.00 165.00 L580.00 233.00 L587.00 213.00 L604.00 213.00 C618.00 213.00 621.00 191.00 635.00 189.00 C651.00 188.00 661.00 213.00 670.00 213.00"/></g>
+              <path id="pr-bracket" class="pr-bracket" d="M46 251v7H142v-7"/>
+              <text id="pr-label" class="interval-label" x="94" y="284">PR</text>
+              <path id="rr-bracket" class="rr-bracket" d="M154 163v-9H364v9"/>
+              <text id="rr-label" class="rr-label" x="259" y="145">R–R fixed</text>
+              <line id="scan-line" class="scan-line" x1="24" y1="165" x2="24" y2="246"/>
+            </g>
+            <g id="next-batch" class="next-batch">
+              <text class="scene-label" x="24" y="24">Next-round candidates</text>
+              <g class="candidate-pair" id="candidate-0" transform="translate(16 43)">
+      <rect class="candidate-frame" x="0" y="0" width="218" height="222" rx="9"/>
+      <text class="candidate-label" x="15" y="25">Pair 1</text>
+      <text class="trace-label" x="15" y="51">Reference</text>
+      <path class="reference-trace" d="M22 0 L92 0 C98 0 97 -12 106 -14 C114 -16 120 0 124 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L302 0 C308 0 307 -12 316 -14 C324 -16 330 0 334 0 L352 0 L357 10 L364 -48 L370 20 L377 0 L394 0 C408 0 411 -22 425 -24 C441 -25 451 0 460 0 L512 0 C518 0 517 -12 526 -14 C534 -16 540 0 544 0 L562 0 L567 10 L574 -48 L580 20 L587 0 L604 0 C618 0 621 -22 635 -24 C651 -25 661 0 670 0" transform="translate(7 85) scale(.27 .56)"/>
+      <text class="trace-label" x="15" y="145">Contrast</text>
+      <path class="contrast-trace" d="M22 0 L46 0 C52 0 51 -12 60 -14 C68 -16 74 0 78 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L256 0 C262 0 261 -12 270 -14 C278 -16 284 0 288 0 L352 0 L357 10 L364 -48 L370 20 L377 0 L394 0 C408 0 411 -22 425 -24 C441 -25 451 0 460 0 L466 0 C472 0 471 -12 480 -14 C488 -16 494 0 498 0 L562 0 L567 10 L574 -48 L580 20 L587 0 L604 0 C618 0 621 -22 635 -24 C651 -25 661 0 670 0" transform="translate(7 181) scale(.27 .56)"/>
+    </g>
+<g class="candidate-pair" id="candidate-1" transform="translate(254 43)">
+      <rect class="candidate-frame" x="0" y="0" width="218" height="222" rx="9"/>
+      <text class="candidate-label" x="15" y="25">Pair 2</text>
+      <text class="trace-label" x="15" y="51">Reference</text>
+      <path class="reference-trace" d="M22 0 L92 0 C98 0 97 -12 106 -14 C114 -16 120 0 124 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L322 0 C328 0 327 -12 336 -14 C344 -16 350 0 354 0 L372 0 L377 10 L384 -48 L390 20 L397 0 L414 0 C428 0 431 -22 445 -24 C461 -25 471 0 480 0 L552 0 C558 0 557 -12 566 -14 C574 -16 580 0 584 0 L602 0 L607 10 L614 -48 L620 20 L627 0 L644 0 C658 0 661 -22 675 -24 C691 -25 701 0 710 0" transform="translate(7 85) scale(.27 .56)"/>
+      <text class="trace-label" x="15" y="145">Contrast</text>
+      <path class="contrast-trace" d="M22 0 L46 0 C52 0 51 -12 60 -14 C68 -16 74 0 78 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L276 0 C282 0 281 -12 290 -14 C298 -16 304 0 308 0 L372 0 L377 10 L384 -48 L390 20 L397 0 L414 0 C428 0 431 -22 445 -24 C461 -25 471 0 480 0 L506 0 C512 0 511 -12 520 -14 C528 -16 534 0 538 0 L602 0 L607 10 L614 -48 L620 20 L627 0 L644 0 C658 0 661 -22 675 -24 C691 -25 701 0 710 0" transform="translate(7 181) scale(.27 .56)"/>
+    </g>
+<g class="candidate-pair" id="candidate-2" transform="translate(492 43)">
+      <rect class="candidate-frame" x="0" y="0" width="218" height="222" rx="9"/>
+      <text class="candidate-label" x="15" y="25">Pair 3</text>
+      <text class="trace-label" x="15" y="51">Reference</text>
+      <path class="reference-trace" d="M22 0 L92 0 C98 0 97 -12 106 -14 C114 -16 120 0 124 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L342 0 C348 0 347 -12 356 -14 C364 -16 370 0 374 0 L392 0 L397 10 L404 -48 L410 20 L417 0 L434 0 C448 0 451 -22 465 -24 C481 -25 491 0 500 0 L592 0 C598 0 597 -12 606 -14 C614 -16 620 0 624 0 L642 0 L647 10 L654 -48 L660 20 L667 0 L684 0 C698 0 701 -22 715 -24 C731 -25 741 0 750 0" transform="translate(7 85) scale(.27 .56)"/>
+      <text class="trace-label" x="15" y="145">Contrast</text>
+      <path class="contrast-trace" d="M22 0 L46 0 C52 0 51 -12 60 -14 C68 -16 74 0 78 0 L142 0 L147 10 L154 -48 L160 20 L167 0 L184 0 C198 0 201 -22 215 -24 C231 -25 241 0 250 0 L296 0 C302 0 301 -12 310 -14 C318 -16 324 0 328 0 L392 0 L397 10 L404 -48 L410 20 L417 0 L434 0 C448 0 451 -22 465 -24 C481 -25 491 0 500 0 L546 0 C552 0 551 -12 560 -14 C568 -16 574 0 578 0 L642 0 L647 10 L654 -48 L660 20 L667 0 L684 0 C698 0 701 -22 715 -24 C731 -25 741 0 750 0" transform="translate(7 181) scale(.27 .56)"/>
+    </g>
+              <text class="pair-caption" x="362" y="288">Matched rate. Contrasting PR evidence.</text>
+            </g>
+          </svg>
+          <div class="construction-checks" aria-label="Construction checks"><span id="target-check"><i>✓</i> Target</span><span id="protect-check"><i>✓</i> Protected features</span><span id="answer-check"><i>✓</i> Answer</span><span class="feedback-tag" id="construction-feedback">Construction feedback ↗</span></div>
+          <div class="learning-route"><span id="admission-label">Verified Q/A</span><svg viewBox="0 0 300 22" aria-hidden="true"><path d="M0 11H293m-6-5 6 5-6 5"/><circle id="example-packet" cx="293" cy="11" r="4"/></svg><span>Student</span></div>
+        </div>
+        <div class="agent-column">
+          <div class="agent-state updated" id="agent-state">
+            <div class="agent-heading"><span class="agent-icon" aria-hidden="true">φ</span><h3>Synthesis agent</h3><span id="agent-version">Revised</span></div>
+            <dl class="agent-rules">
+              <div id="operator-rule" class="changed"><dt>Operator</dt><dd><s id="operator-old">Stretch PQ</s><strong id="operator-value">PQ stretch + TP fix</strong></dd></div>
+              <div id="prompt-rule" class="changed"><dt>Recipe</dt><dd><s id="prompt-old">Direct practice</s><strong id="prompt-value">Contrast pairs</strong></dd></div>
+              <div id="sampling-rule" class="changed"><dt>Sampling</dt><dd><s id="sampling-old">Weak categories</s><strong id="sampling-value">Confusion pairs</strong></dd></div>
+            </dl>
+          </div>
+          <div class="student-state">
+            <div><p class="student-label">Student learning</p><svg class="branch-scene" viewBox="0 0 244 100" role="img" aria-label="Three candidate interventions are trained from the same parent and compared"><path d="M29 50H75M75 50C102 50 95 20 123 20H174M75 50H174M75 50C102 50 95 80 123 80H174"/><circle class="parent-dot" cx="29" cy="50" r="10"/><circle class="branch-node branch-a" cx="188" cy="20" r="13"/><circle class="branch-node branch-b selected" cx="188" cy="50" r="13"/><circle class="branch-node branch-c" cx="188" cy="80" r="13"/><text x="188" y="24">A</text><text x="188" y="54">B</text><text x="188" y="84">C</text></svg><p id="student-status">Compare interventions</p></div>
+            <div class="learner-return active"><svg viewBox="0 0 45 203" aria-hidden="true"><path id="learner-return-path" d="M3 186C44 186 44 18 3 18m7-6-7 6 7 6"/><circle id="feedback-packet" r="4" cx="3" cy="18"/></svg><span>Learner feedback</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer"><p id="phase-caption">The revised agent constructs paired examples for the next comparison.</p><div class="demo-controls"><button id="play-toggle" type="button" aria-label="Play animation">Play</button><button id="previous-step" type="button" aria-label="Previous step">←</button><div class="step-buttons" aria-label="Animation steps"><button type="button" data-step-to="0" aria-label="Step 1: Edit">1</button><button type="button" data-step-to="1" aria-label="Step 2: Repair">2</button><button type="button" data-step-to="2" aria-label="Step 3: Admit">3</button><button type="button" data-step-to="3" aria-label="Step 4: Learn">4</button><button type="button" data-step-to="4" aria-label="Step 5: Evolve">5</button><button type="button" data-step-to="5" aria-label="Step 6: New candidates" aria-current="step">6</button></div><button id="next-step" type="button" aria-label="Next step">→</button></div></div>
+      <div class="animation-progress" role="progressbar" aria-label="Animation position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span id="animation-progress"></span></div>
     </div>
-    <p class="eyebrow">ECG interpretation · Verified synthesis · Recursive improvement</p>
-    <h1 id="paper-title"><span class="title-name">ECG-RSI</span> <span class="title-detail">Recursive Self-Improvement through<br class="desktop-break"> Targeted ECG Waveform Evolution</span></h1>
-    <p class="hero-summary">A model’s mistakes suggest what to teach next. ECG-RSI turns those suggestions into measurable waveform changes, then tests which training intervention helps the learner.</p>
+    <p class="demo-note">Schematic mechanism · waveform shapes and branch choices are illustrative.</p>
+  </section>
+
+  <section class="container authors-section" id="authors" aria-label="Authors and affiliations">
     <div class="authors" aria-label="Authors">
       <span><a href="https://openreview.net/profile?id=~Wang_Xiaoliang2">Xiaoliang Wang</a><sup>1,2,*</sup></span>
       <span><a href="https://openreview.net/profile?id=~Zhuo_Chen3">Zhuo Chen</a><sup>2,*</sup></span>
@@ -70,108 +143,16 @@
       <li><sup>3</sup> Shanghai Artificial Intelligence Laboratory</li><li><sup>4</sup> Shanghai Jiao Tong University</li>
     </ol>
     <p class="author-note">* Equal contribution. &nbsp; † Corresponding author.</p>
-    <div class="actions"><a class="button primary" href="papers/ecg-rsi.pdf">Paper <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/pork-pay/ECG-RSI">GitHub <span aria-hidden="true">↗</span></a><a class="text-link" href="#findings">Explore the findings <span aria-hidden="true">↓</span></a></div>
   </section>
 
-  <section class="research-question">
-    <div class="container question-grid">
-      <div><p class="eyebrow">The research question</p><h2>Which ECG example should the model learn from next?</h2></div>
-      <div class="question-copy"><p>More synthetic data is useful only if its labels agree with the signal and its content addresses a learnable gap.</p><p><strong>ECG-RSI separates these decisions:</strong> signal measurements check the example; matched training branches test its utility for the current model.</p></div>
+  <section class="container findings-section" id="findings" aria-labelledby="findings-title">
+    <h2 id="findings-title">What changes as the learner improves?</h2>
+    <div class="insights">
+      <article class="teaching-insight"><h3>The preferred intervention changes.</h3><div class="teaching-path"><div><span>R1</span><strong>Reinforce</strong></div><i aria-hidden="true">→</i><div><span>R2</span><strong>Contrast</strong></div><i aria-hidden="true">→</i><div><span>R3</span><strong>Contrast</strong></div></div><p>Diagnose a weakness, then compare how to teach it.</p></article>
+      <article class="transfer-insight"><h3>External gains diminish.</h3><div class="gain-bars" aria-label="Successive external S7 gains: R1 13.07, R2 3.01, R3 0.38 points"><div><span>R1</span><i style="--gain:100%"></i><strong>+13.07</strong></div><div><span>R2</span><i style="--gain:23.03%"></i><strong>+3.01</strong></div><div><span>R3</span><i style="--gain:2.91%"></i><strong>+0.38</strong></div></div><p>Seven-benchmark mean gain (points).</p></article>
     </div>
-  </section>
-
-  <section class="section container" id="example" aria-labelledby="example-title">
-    <div class="section-heading"><p class="eyebrow">01 / From a target to evidence</p><h2 id="example-title">Make the waveform carry the lesson.</h2><p class="section-lead">A PR-interval lesson needs a signal that expresses the intended contrast. ECG-RSI remeasures the edit and builds the answer from the achieved values.</p></div>
-    <div class="example-intro">
-      <div><h3>A recorded PR-prolongation example</h3><p>The pipeline lengthens the PQ segment and compensates in the TP segment to preserve the interval between beats. It then measures the edited signal before constructing the question.</p></div>
-      <dl class="measurements"><div><dt>Requested PR</dt><dd>300 <span>ms</span></dd></div><div><dt>Measured PR</dt><dd>298 <span>ms</span></dd></div><div><dt>Measured heart rate</dt><dd>74.6 <span>bpm</span></dd></div></dl>
-    </div>
-    <figure class="signal-figure">
-      <a class="figure-link" href="assets/case-pr.png" target="_blank" rel="noopener" aria-label="Open full-size original and edited ECG for PR prolongation"><img src="assets/case-pr.png" alt="Original and edited 12-lead ECGs with lead II details, illustrating the targeted PR prolongation." width="1844" height="1060" loading="lazy"></a>
-      <figcaption><span class="figure-label">Recorded example</span> The question distinguishes PR prolongation from changes in heart rate or QRS duration. Values follow the paper’s automatic measurement convention. <a href="assets/case-pr.png" target="_blank" rel="noopener">Open full size ↗</a></figcaption>
-    </figure>
-    <div class="example-reading"><p><strong>What is being verified?</strong> Both the requested change and the features that should remain stable. A successful edit alone does not guarantee a valid training question: the image, question, answer and explanation must also agree.</p><p class="source-note">Source: paper appendix, “Case 1: Targeted PR prolongation.”</p></div>
-    <details class="detail-block">
-      <summary>Another example: slowing the heart rate while preserving the beat waveform</summary>
-      <div class="detail-content"><p>Extending the TP segment increases the interval between beats while retaining the P–QRS–T segment. The requested rate is <strong>48 bpm</strong>; the pipeline measures <strong>47.9 bpm</strong>. This example provides a different contrast from PR prolongation.</p>
-        <figure><a class="figure-link" href="assets/case-rate.png" target="_blank" rel="noopener" aria-label="Open full-size heart-rate slowing example"><img src="assets/case-rate.png" alt="Original and edited ECGs showing a longer interval between beats, with lead II details." width="1844" height="1060" loading="lazy"></a><figcaption>Source: paper appendix, “Case 2: Targeted heart-rate slowing.” Measurements use the same automatic convention.</figcaption></figure>
-      </div>
-    </details>
-  </section>
-
-  <section class="section section-tint" id="method" aria-labelledby="method-title">
-    <div class="container">
-      <div class="section-heading"><p class="eyebrow">02 / The mechanism</p><h2 id="method-title">Two kinds of error.<br>Two places to intervene.</h2><p class="section-lead">Construction feedback improves how examples are made. Learner feedback proposes what the next training data should teach.</p></div>
-      <div class="feedback-grid">
-        <article class="feedback-block construction"><p class="small-label">Construction feedback</p><h3>Can the example support its answer?</h3><p>Start with an eligible training ECG, or edit it to express a requested feature contrast. Remeasure the signal and check the resulting supervision.</p><ul><li>Did the target feature change as requested?</li><li>Were protected features preserved?</li><li>Do the question and answer match the signal?</li></ul><p class="return-path"><span aria-hidden="true">↶</span> Rejections guide repairs to waveform operators, retrieval rules and generation prompts.</p></article>
-        <article class="feedback-block learning"><p class="small-label">Learner feedback</p><h3>Will this intervention help this model?</h3><p>Diagnose errors by ECG category, question type, difficulty and recurring confusion. Use these observations to propose candidate training recipes.</p><ul><li>Reinforce a weak category and its question types.</li><li>Contrast diagnoses the learner confuses.</li><li>Adjust the difficulty and task mixture.</li></ul><p class="return-path"><span aria-hidden="true">↶</span> Compare trained candidates, retain a qualifying update, then diagnose the updated learner.</p></article>
-      </div>
-      <div class="comparison-protocol">
-        <h3>A fair comparison starts from the same parent.</h3>
-        <ol class="protocol-steps">
-          <li><span class="step-number">1</span><strong>Propose A / B / C</strong><p>Three intervention families respond to the current error profile.</p></li>
-          <li><span class="step-number">2</span><strong>Construct and train</strong><p>Each branch adds 10,000 accepted questions, with matched replay and training settings.</p></li>
-          <li><span class="step-number">3</span><strong>Select an update</strong><p>A separate selection set compares candidates and checks regression.</p></li>
-          <li><span class="step-number">4</span><strong>Evaluate transfer</strong><p>External benchmarks measure the retained learner’s performance.</p></li>
-        </ol>
-        <p class="protocol-note">The feedback set diagnoses weaknesses; the selection set chooses a checkpoint. External benchmarks stay outside generation and selection.</p>
-      </div>
-      <details class="detail-block">
-        <summary>Explore the complete framework and waveform operators</summary>
-        <div class="detail-content">
-          <figure><a class="figure-link" href="assets/method.svg" target="_blank" rel="noopener" aria-label="Open the full ECG-RSI framework"><img loading="lazy" src="assets/method.svg" width="896" height="410" alt="Full ECG-RSI framework: a data factory verifies supervision, candidate branches are trained and selected, and independent evaluation remains outside the update loop."></a><figcaption><span class="figure-label">Paper Fig. 1</span> Construction repair and learner-driven intervention search connect data generation to model updates.</figcaption></figure>
-          <figure><a class="figure-link" href="assets/waveform-engine.svg" target="_blank" rel="noopener" aria-label="Open the waveform construction operators"><img loading="lazy" src="assets/waveform-engine.svg" width="1130" height="517" alt="Waveform construction operators for rhythm, intervals, morphology, amplitude and leads, followed by remeasurement and question construction."></a><figcaption><span class="figure-label">Paper Fig. 2</span> Forward synthesis derives supervision from measured training signals; reverse synthesis first constructs a requested feature contrast. Both use shared validity checks.</figcaption></figure>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <section class="section container" id="findings" aria-labelledby="findings-title">
-    <div class="section-heading"><p class="eyebrow">03 / What the experiments show</p><h2 id="findings-title">The next useful intervention can change.</h2><p class="section-lead">The experiments separate the value of a constructed example from the value of training on it—and track whether local progress transfers.</p></div>
-
-    <article class="finding">
-      <div class="finding-text"><span class="finding-index">01</span><h3>A weakness does not uniquely determine how to teach it.</h3><p>Each round compares direct reinforcement, confusion contrast and curriculum adjustment. <strong>The retained intervention changes from direct reinforcement to confusion-focused contrasts.</strong> Error diagnosis proposes a direction; candidate training tests that proposal.</p><p class="source-note">Source: paper, “Round-Wise Branch Selection and Data Composition.”</p></div>
-      <div class="lineage" aria-label="Retained interventions over the three rounds"><div><span>R0 → R1</span><h4>Direct reinforcement</h4><p>AV-block coverage and measurement questions</p></div><div><span>R1 → R2</span><h4>Confusion contrast</h4><p>Regional STEMI contrasts</p></div><div><span>R2 → R3</span><h4>Confusion contrast</h4><p>Rhythm contrasts</p></div><p class="chart-note">Choices reported for this three-round trajectory; each comparison starts from its own shared parent.</p></div>
-    </article>
-
-    <article class="finding">
-      <div class="finding-text"><span class="finding-index">02</span><h3>The content of new data matters, beyond its volume.</h3><p>All four configurations start at <strong>S7 = 43.22</strong> and add <strong>10,000 questions</strong>. Adding reverse synthesis and feedback-guided selection gives the largest observed improvement in this comparison.</p><p>The fixed and feedback-guided bidirectional mixtures differ by <strong>0.67 S7 points</strong>. The comparison tests how the added examples are constructed and selected.</p><p class="source-note">Source: paper, “Data Construction and Feedback Selection.”</p></div>
-      <figure class="ablation-chart">
-        <div class="chart-heading"><h4>Gain over the shared parent</h4><span>ΔS7 · points</span></div>
-        <div class="bar-row"><span class="bar-label">Ordinary training questions</span><div class="bar-track"><span style="--bar:30.90%"></span></div><strong>+0.93</strong></div>
-        <div class="bar-row"><span class="bar-label">Forward synthesis</span><div class="bar-track"><span style="--bar:34.88%"></span></div><strong>+1.05</strong></div>
-        <div class="bar-row"><span class="bar-label">Forward + reverse<br><small>Fixed selection proportions</small></span><div class="bar-track"><span style="--bar:77.74%"></span></div><strong>+2.34</strong></div>
-        <div class="bar-row emphasized"><span class="bar-label">Forward + reverse<br><small>Feedback-guided selection</small></span><div class="bar-track"><span style="--bar:100%"></span></div><strong>+3.01</strong></div>
-        <figcaption>Bars start at zero and show reported gains over the same checkpoint. S7 is the equally weighted seven-benchmark score.</figcaption>
-      </figure>
-    </article>
-
-    <article class="finding last-finding">
-      <div class="finding-text"><span class="finding-index">03</span><h3>Local correction has diminishing external returns.</h3><p>Feedback errors continue to fall, but the external S7 gains shrink from <strong>13.07</strong> to <strong>3.01</strong> to <strong>0.38</strong> points. Some individual benchmark scores fall in the final round.</p><p>The result motivates checking external transfer and task-level regressions when deciding whether another update is useful.</p><p class="source-note">Source: main benchmark trajectory, series R-A. Model: Qwen3.5-35B-A3B.</p></div>
-      <figure class="trajectory-chart">
-        <div class="chart-heading"><h4>External performance across rounds</h4><span>S7 · 0–100 scale</span></div>
-        <svg viewBox="0 0 640 310" role="img" aria-labelledby="trajectory-title trajectory-desc">
-          <title id="trajectory-title">Seven-benchmark score across three rounds</title><desc id="trajectory-desc">R0: 30.15. R1: 43.22. R2: 46.23. R3: 46.61. Round-to-round gains are 13.07, 3.01 and 0.38 points. The plotted vertical range is 0 to 50.</desc>
-          <g class="grid-lines"><path d="M58 250H604 M58 211H604 M58 172H604 M58 133H604 M58 94H604 M58 55H604"></path></g>
-          <g class="axis-labels"><text x="43" y="255">0</text><text x="43" y="216">10</text><text x="43" y="177">20</text><text x="43" y="138">30</text><text x="43" y="99">40</text><text x="43" y="60">50</text></g>
-          <path class="trajectory-line" d="M82 132.415L246 81.442L410 69.703L574 68.221"></path>
-          <g class="trajectory-points"><circle cx="82" cy="132.415" r="5"></circle><circle cx="246" cy="81.442" r="5"></circle><circle cx="410" cy="69.703" r="5"></circle><circle cx="574" cy="68.221" r="5"></circle></g>
-          <g class="point-labels"><text x="82" y="111">30.15</text><text x="246" y="60">43.22</text><text x="410" y="48">46.23</text><text x="574" y="47">46.61</text></g>
-          <g class="round-labels"><text x="82" y="282">R0</text><text x="246" y="282">R1</text><text x="410" y="282">R2</text><text x="574" y="282">R3</text></g>
-        </svg>
-        <figcaption>Reported point estimates for the retained R-A trajectory. S7 averages four accuracy and three classification F1 scores.</figcaption>
-      </figure>
-    </article>
-
-    <div class="result-summary" aria-label="Mean benchmark performance before and after three rounds">
-      <div><span>Mean QA accuracy · four benchmarks</span><strong>34.57% <i aria-hidden="true">→</i> 56.04%</strong><p>+21.47 percentage points</p></div>
-      <div><span>Mean classification F1 · three benchmarks</span><strong>24.27 <i aria-hidden="true">→</i> 34.03</strong><p>+9.77 points · 0–100 scale</p></div>
-    </div>
-    <p class="summary-note">Means and gains follow the paper; gains are calculated before rounding. These results describe the reported model, training protocol and benchmark suite.</p>
-    <details class="detail-block benchmark-detail">
-      <summary>Inspect the seven benchmark scores at every round</summary>
-      <div class="detail-content"><p>Question-answering tasks report accuracy; classification tasks report F1. All values use a 0–100 scale. S7 gives each of the seven task scores equal weight.</p>
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Round-by-round benchmark table; scroll horizontally on small screens">
+    <div class="headline-results"><div><strong>+21.47<span>pp</span></strong><span>Mean QA accuracy</span></div><div><strong>+9.77<span>points</span></strong><span>Mean classification F1</span></div><p>Qwen3.5-35B-A3B · three rounds<br> Seven benchmarks · reported R-A trajectory</p></div>
+    <details class="detail-block" id="experiment-details"><summary>Experiment details and benchmark scores</summary><div class="detail-content"><p>S7 equally weights four accuracy and three classification F1 scores on a 0–100 scale. The main trajectory rises from 30.15 to 46.61. Mean QA accuracy increases from 34.57% to 56.04%; mean F1 increases from 24.27 to 34.03. Gains are computed before rounding.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Round-by-round benchmark table; scroll horizontally on small screens">
           <table><caption>ECG-RSI main trajectory (R-A)</caption><thead><tr><th scope="col">Benchmark</th><th scope="col">Metric</th><th scope="col">R0</th><th scope="col">R1</th><th scope="col">R2</th><th scope="col">R3</th></tr></thead><tbody>
             <tr><th scope="row">MMMU-ECG</th><td>Accuracy</td><td>42.00</td><td>48.00</td><td>56.00</td><td>57.50</td></tr>
             <tr><th scope="row">CSN</th><td>Accuracy</td><td>30.91</td><td>61.68</td><td>64.86</td><td>67.23</td></tr>
@@ -182,24 +163,21 @@
             <tr><th scope="row">CODE-15%</th><td>F1</td><td>30.20</td><td>38.80</td><td>41.50</td><td>41.00</td></tr>
             <tr class="aggregate"><th scope="row">S7</th><td>Equal-weight mean</td><td>30.15</td><td>43.22</td><td>46.23</td><td>46.61</td></tr>
           </tbody></table>
-        </div><p class="source-note">Dataset protocols, model comparisons and further analyses are provided in the paper.</p>
-      </div>
-    </details>
+        </div><p>Interventions are compared from the same parent on a separate selection set. Source: the paper’s main results and “Round-Wise Branch Selection and Data Composition.” These are observations from the reported setting.</p></div></details>
+    <details class="detail-block" id="method"><summary>Recorded waveform example and full method</summary><div class="detail-content"><p>The appendix PR example requests 300 ms and remeasures 298 ms, with heart rate 74.6 bpm. It lengthens the PQ segment and compensates in the TP segment to preserve the RR interval. These values follow the paper’s automatic measurement convention.</p><figure><a href="assets/case-pr.png" target="_blank" rel="noopener"><img src="assets/case-pr.png" width="1844" height="1060" alt="Recorded PR-prolongation example from the paper" loading="lazy"></a><figcaption>Paper appendix, Case 1. Click to inspect the original and edited ECGs.</figcaption></figure><figure><a href="assets/method.svg" target="_blank" rel="noopener"><img src="assets/method.svg" width="896" height="410" alt="ECG-RSI framework with construction and learner feedback loops" loading="lazy"></a><figcaption>Paper Fig. 1. Construction feedback repairs operators and prompts. Learner feedback proposes recipes; same-parent candidate comparisons select a model.</figcaption></figure></div></details>
   </section>
 
-  <section class="section section-tint" id="resources" aria-labelledby="resources-title">
-    <div class="container resource-grid">
-      <div><p class="eyebrow">04 / Read further</p><h2 id="resources-title">Paper and project materials</h2><p>The paper describes the waveform operators, verification protocol, intervention search and experiments, with detailed examples in the appendix.</p><div class="resource-links"><a href="papers/ecg-rsi.pdf">Paper PDF <span aria-hidden="true">↗</span></a><a href="papers/ECG_RSI_arXiv.zip">LaTeX source <span aria-hidden="true">↓</span></a><a href="https://pork-pay.github.io/ECG-RSI/">Project page <span aria-hidden="true">↗</span></a><a href="https://github.com/pork-pay/ECG-RSI">GitHub repository <span aria-hidden="true">↗</span></a></div><p class="availability">This repository contains the paper and project-page materials. The synthesis and training implementation, model weights and training-data files are not included in this release.</p></div>
-      <aside class="related-project"><p class="small-label">Related project</p><h3><a href="https://pork-pay.github.io/MedEvo/">MedEvo <span aria-hidden="true">↗</span></a></h3><p>MedEvo preserves and repairs medical reasoning trajectories. ECG-RSI constructs and verifies waveform evidence. Both study how targeted supervision becomes useful to a learner.</p></aside>
-    </div>
-    <div class="container citation" id="cite"><div class="citation-heading"><h3>Cite this work</h3><button class="copy-button" type="button" data-copy="bibtex">Copy BibTeX</button></div><pre><code id="bibtex">@misc{wang2026ecgrsi,
+  <section class="container resources-section" id="resources" aria-label="Resources">
+    <div class="resource-links"><a href="papers/ecg-rsi.pdf">Paper ↗</a><a href="https://pork-pay.github.io/ECG-RSI/">Project ↗</a><a href="https://github.com/pork-pay/ECG-RSI">GitHub ↗</a><a href="papers/ECG_RSI_arXiv.zip">LaTeX ↓</a><a href="https://pork-pay.github.io/MedEvo/">Related: MedEvo ↗</a></div>
+    <p class="availability">Paper and project materials are available. Training/synthesis implementation, model weights and training data are not included.</p>
+    <details class="detail-block citation" id="cite"><summary>Citation</summary><div class="detail-content"><button class="copy-button" type="button" data-copy="bibtex">Copy BibTeX</button><pre><code id="bibtex">@misc{wang2026ecgrsi,
   title = {ECG-RSI: Recursive Self-Improvement through Targeted ECG Waveform Evolution},
   author = {Wang, Xiaoliang and Chen, Zhuo and Zheng, Chuanyang and Lao, Jiangwei and Wang, Quanbin and Lin, Honglin and Liu, Jiajia and Lu, Zhihong and Jin, Hao and Wang, Jian and Wu, Lijun},
   year = {2026},
   url = {https://pork-pay.github.io/ECG-RSI/}
-}</code></pre><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div>
+}</code></pre><p id="copy-status" role="status" aria-live="polite"></p></div></details>
   </section>
 </main>
-<footer class="container site-footer"><a class="brand" href="#top"><img src="assets/ecg-rsi-mark.svg" alt="" width="24" height="24">ECG-RSI</a><span>Technical report · 2026</span><a href="#top">Back to top ↑</a></footer>
+<footer class="container site-footer"><span>ECG-RSI · 2026</span><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
