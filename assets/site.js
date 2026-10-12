@@ -87,7 +87,6 @@
     const targetReady = step > 0 || p > 0.77;
     const protectedReady = step > 1 || (step === 1 && p > 0.76);
     const answerReady = step > 2 || (step === 2 && p > 0.4);
-    const nextOpacity = step === 5 ? ease(p / 0.19) : 0;
 
     demo.dataset.step = String(step);
     ui.title.textContent = titles[step];
@@ -105,11 +104,14 @@
     ui.rrLabel.setAttribute("x", (154 + rr / 2).toFixed(3));
     ui.rrLabel.textContent = rr > 214 ? "R–R drift" : "R–R fixed";
     ui.rrLabel.style.fill = rr > 214 ? "var(--warn)" : "var(--muted)";
-    ui.rrBracket.style.stroke = rr > 214 ? "var(--warn)" : "#8399a7";
-    ui.comparison.style.opacity = String(1 - nextOpacity);
-    ui.nextBatch.style.opacity = String(nextOpacity);
+    ui.rrBracket.style.stroke = rr > 214 ? "var(--warn)" : "#667f92";
+    ui.comparison.style.display = step === 5 ? "none" : "";
+    ui.nextBatch.style.display = step === 5 ? "" : "none";
+    ui.comparison.style.opacity = "1";
+    ui.nextBatch.style.opacity = "1";
     ui.pairCards.forEach((card, i) => {
-      card.style.opacity = String(step === 5 ? ease((p - i * 0.16) / 0.24) : 1);
+      card.style.opacity = "1";
+      card.style.visibility = step === 5 && p >= i * 0.16 ? "visible" : "hidden";
     });
     ui.scan.setAttribute("x1", String(24 + 666 * clamp(p / 0.7)));
     ui.scan.setAttribute("x2", String(24 + 666 * clamp(p / 0.7)));
