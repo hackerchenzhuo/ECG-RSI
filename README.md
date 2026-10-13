@@ -36,7 +36,7 @@ Qwen3.5-35B-A3B, after three rounds.
 | Mean metric | Base | ECG-RSI |
 |:--|--:|--:|
 | QA accuracy (%) | 34.57 | **56.04** |
-| Classification F1 | 24.27 | **34.03** |
+| Classification F1 (0–100) | 24.27 | **34.03** |
 
 [Full results and comparisons →](https://pork-pay.github.io/ECG-RSI/#findings)
 
