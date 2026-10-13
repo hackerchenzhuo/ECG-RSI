@@ -1,45 +1,85 @@
-<div align="center">
+<img src="assets/ecg-rsi-mark.svg" width="72" alt="ECG-RSI">
+
+# ECG-RSI
+
+**Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution**
+
+Turn learner errors into the next generation of verified ECG supervision.
+
+[Paper](papers/ecg-rsi.pdf) · [Project page](https://pork-pay.github.io/ECG-RSI/) · [GitHub](https://github.com/pork-pay/ECG-RSI) · [LaTeX source](papers/ECG_RSI_arXiv.zip)
+
+[![ECG-RSI evolution: edit the waveform, verify supervision, compare interventions, and change the next batch.](assets/ecg-evolution.gif)](https://pork-pay.github.io/ECG-RSI/#evolution)
+
+**[Watch the evolution loop →](https://pork-pay.github.io/ECG-RSI/#evolution)**
+
+- **Verify the example.** Construction feedback repairs waveform operators and checks target and protected features.
+- **Compare ways to teach.** Learner errors propose interventions; matched branches and a separate selection set determine which to retain.
+- **Change the next batch.** The retained recipe guides subsequent synthesis and sampling.
+
+The animation illustrates the mechanism. The paper’s [recorded waveform example](https://pork-pay.github.io/ECG-RSI/#method) requests PR 300 ms and remeasures 298 ms, under its automatic measurement convention.
+
+## Reported findings
+
+The retained intervention shifts from direct reinforcement to confusion contrasts. Successive external S7 gains diminish: **+13.07 → +3.01 → +0.38** points.
+
+| Mean metric | Starting model | After three rounds |
+| --- | ---: | ---: |
+| QA accuracy | 34.57% | 56.04% |
+| Classification F1 | 24.27 | 34.03 |
+
+Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 scores on a 0–100 scale. [Experiment details.](https://pork-pay.github.io/ECG-RSI/#findings)
+
+[![Original paper Figure 4: benchmark and strategy comparisons](assets/benchmark-comparison.png)](assets/benchmark-comparison.pdf)
+
+*Original paper Figure 4. Accuracy, F1, validation and strategy trajectories across rounds; open the figure for details.*
+
+## Authors
 
 <p>
-  <img src="assets/zhejiang-university-symbol.png" height="34" alt="Zhejiang University"> &nbsp;&nbsp;
-  <img src="assets/ant-group-symbol.png" height="34" alt="Ant Group"> &nbsp;&nbsp;
-  <img src="assets/shanghai-ai-lab-symbol.png" height="34" alt="Shanghai Artificial Intelligence Laboratory"> &nbsp;&nbsp;
-  <img src="assets/shanghai-jiao-tong-symbol.png" height="34" alt="Shanghai Jiao Tong University">
+      <span><a href="https://openreview.net/profile?id=~Wang_Xiaoliang2">Xiaoliang Wang</a><sup>1,2,*</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Zhuo_Chen3">Zhuo Chen</a><sup>2,*</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Chuanyang_Zheng2">Chuanyang Zheng</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jiangwei_Lao1">Jiangwei Lao</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Quanbin_Wang1">Quanbin Wang</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Honglin_Lin2">Honglin Lin</a><sup>3,4</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jiajia_Liu1">Jiajia Liu</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Zhihong_Lu2">Zhihong Lu</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Hao_Jin4">Hao Jin</a><sup>1</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup></span>,
+      <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>2,3,†</sup></span>
+    </p>
+
+<p>
+  <img src="assets/zhejiang-university-symbol.png" height="28" alt="Zhejiang University"> &nbsp;
+  <img src="assets/ant-group-symbol.png" height="28" alt="Ant Group"> &nbsp;
+  <img src="assets/shanghai-ai-lab-symbol.png" height="25" alt="Shanghai Artificial Intelligence Laboratory"> &nbsp;
+  <img src="assets/shanghai-jiao-tong-symbol.png" height="28" alt="Shanghai Jiao Tong University">
 </p>
 
-# ECG-RSI: Recursive Self-Improvement<br>through Targeted ECG Waveform Evolution
+<p>
+      <sup>1</sup> Zhejiang University · <sup>2</sup> Ant Group ·
+      <sup>3</sup> Shanghai Artificial Intelligence Laboratory · <sup>4</sup> Shanghai Jiao Tong University</p>
 
-[**Paper**](papers/ecg-rsi.pdf) · [**Website**](https://pork-pay.github.io/ECG-RSI/) · [**LaTeX Source**](papers/ECG_RSI_arXiv.zip)
+<sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.
 
-Wang Xiaoliang, Zhuo Chen, Chuanyang Zheng, Jiangwei Lao, Quanbin Wang, Honglin Lin, Jiajia Liu, Zhihong Lu, Hao Jin, Jian Wang, Lijun Wu
+## Materials
 
-Zhejiang University · Ant Group · Shanghai Artificial Intelligence Laboratory · Shanghai Jiao Tong University
+This repository provides the paper, LaTeX source and static project page. Training/synthesis implementation, model weights and training data are not included.
 
-</div>
+Preview locally: `python3 -m http.server 8000`, then open `http://localhost:8000`. No build step is required.
 
-## Overview
+Related: [MedEvo](https://pork-pay.github.io/MedEvo/) preserves and repairs medical reasoning trajectories.
 
-**ECG-RSI combines verified ECG waveform synthesis with feedback-guided recursive self-improvement.** It edits waveforms to express targeted feature contrasts, remeasures the resulting signals, and constructs evidence-grounded questions. Construction feedback repairs the generator; learner feedback proposes training interventions that are compared on a separate selection set.
-
-![ECG-RSI framework](assets/method.svg)
-
-## Highlights
-
-- **Measurement-grounded synthesis.** Verify target changes and protected features before accepting supervision.
-- **Adaptive supervision.** The retained three-round trajectory shifts from direct reinforcement to confusion-focused contrasts.
-- **External evaluation.** Across seven benchmarks, mean QA accuracy rises from **34.57% to 56.04%**, mean classification F1 from **24.27 to 34.03**, and the seven-benchmark aggregate from **30.15 to 46.61** (F1 and aggregate on a 0–100 scale).
-
-**[Explore the method and results →](https://pork-pay.github.io/ECG-RSI/)**
-
-The paper and LaTeX source are available above. Training and synthesis implementation code is not included in this release.
-
-## Citation
+<details>
+<summary>Citation</summary>
 
 ```bibtex
 @misc{wang2026ecgrsi,
-  title = {ECG-RSI: Recursive Self-Improvement through Targeted ECG Waveform Evolution},
+  title = {ECG-RSI: Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution},
   author = {Wang, Xiaoliang and Chen, Zhuo and Zheng, Chuanyang and Lao, Jiangwei and Wang, Quanbin and Lin, Honglin and Liu, Jiajia and Lu, Zhihong and Jin, Hao and Wang, Jian and Wu, Lijun},
   year = {2026},
-  url = {https://github.com/pork-pay/ECG-RSI}
+  url = {https://pork-pay.github.io/ECG-RSI/}
 }
 ```
+
+</details>
