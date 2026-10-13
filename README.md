@@ -1,74 +1,57 @@
-<img src="assets/ecg-rsi-mark.svg" width="72" alt="ECG-RSI">
+<div align="center">
 
-# ECG-RSI
+<p><img src="assets/zhejiang-university-symbol.png" height="30" alt="Zhejiang University"> &nbsp;&nbsp; <img src="assets/ant-group-symbol.png" height="30" alt="Ant Group"> &nbsp;&nbsp; <img src="assets/shanghai-ai-lab-symbol.png" height="30" alt="Shanghai AI Laboratory"> &nbsp;&nbsp; <img src="assets/shanghai-jiao-tong-symbol.png" height="30" alt="Shanghai Jiao Tong University"></p>
 
-**Recursive Self-Improvement through Targeted Electrocardiogram Waveform Evolution**
+<h1><img src="assets/ecg-rsi-mark.svg" height="36" alt=""> ECG-RSI</h1>
 
-Turn learner errors into the next generation of verified ECG supervision.
+**Recursive Self-Improvement<br>through Targeted Electrocardiogram Waveform Evolution**
 
-[Paper](papers/ecg-rsi.pdf) · [Project page](https://pork-pay.github.io/ECG-RSI/) · [GitHub](https://github.com/pork-pay/ECG-RSI) · [LaTeX source](papers/ECG_RSI_arXiv.zip)
+[![Paper](assets/readme-paper.svg)](papers/ecg-rsi.pdf)
+[![Project page](assets/readme-project.svg)](https://pork-pay.github.io/ECG-RSI/)
 
-[![ECG-RSI evolution: edit the waveform, verify supervision, compare interventions, and change the next batch.](assets/ecg-evolution.gif)](https://pork-pay.github.io/ECG-RSI/#evolution)
+<p>Xiaoliang Wang<sup>1,2*</sup>, Zhuo Chen<sup>2*</sup>, Chuanyang Zheng<sup>2</sup>, Jiangwei Lao<sup>2</sup>, Quanbin Wang<sup>2</sup>, Honglin Lin<sup>3,4</sup>,<br>
+Jiajia Liu<sup>2</sup>, Zhihong Lu<sup>2</sup>, Hao Jin<sup>1</sup>, Jian Wang<sup>2</sup>, Lijun Wu<sup>2,3†</sup></p>
 
-**[Watch the evolution loop →](https://pork-pay.github.io/ECG-RSI/#evolution)**
+<p><sup>1</sup> Zhejiang University &nbsp;·&nbsp; <sup>2</sup> Ant Group<br>
+<sup>3</sup> Shanghai Artificial Intelligence Laboratory &nbsp;·&nbsp; <sup>4</sup> Shanghai Jiao Tong University</p>
 
-- **Verify the example.** Construction feedback repairs waveform operators and checks target and protected features.
-- **Compare ways to teach.** Learner errors propose interventions; matched branches and a separate selection set determine which to retain.
-- **Change the next batch.** The retained recipe guides subsequent synthesis and sampling.
+<sup>*</sup> Equal contribution &nbsp;·&nbsp; <sup>†</sup> Corresponding author
 
-The animation illustrates the mechanism. The paper’s [recorded waveform example](https://pork-pay.github.io/ECG-RSI/#method) requests PR 300 ms and remeasures 298 ms, under its automatic measurement convention.
+</div>
 
-## Reported findings
-
-The retained intervention shifts from direct reinforcement to confusion contrasts. Successive external S7 gains diminish: **+13.07 → +3.01 → +0.38** points.
-
-| Mean metric | Starting model | After three rounds |
-| --- | ---: | ---: |
-| QA accuracy | 34.57% | 56.04% |
-| Classification F1 | 24.27 | 34.03 |
-
-Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 scores on a 0–100 scale. [Experiment details.](https://pork-pay.github.io/ECG-RSI/#findings)
-
-[![Original paper Figure 4: benchmark and strategy comparisons](assets/benchmark-comparison.png)](assets/benchmark-comparison.pdf)
-
-*Original paper Figure 4. Accuracy, F1, validation and strategy trajectories across rounds; open the figure for details.*
-
-## Authors
-
-<p>
-      <span><a href="https://openreview.net/profile?id=~Wang_Xiaoliang2">Xiaoliang Wang</a><sup>1,2,*</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Zhuo_Chen3">Zhuo Chen</a><sup>2,*</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Chuanyang_Zheng2">Chuanyang Zheng</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Jiangwei_Lao1">Jiangwei Lao</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Quanbin_Wang1">Quanbin Wang</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Honglin_Lin2">Honglin Lin</a><sup>3,4</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Jiajia_Liu1">Jiajia Liu</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Zhihong_Lu2">Zhihong Lu</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Hao_Jin4">Hao Jin</a><sup>1</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>2,3,†</sup></span>
-    </p>
-
-<p>
-  <img src="assets/zhejiang-university-symbol.png" height="28" alt="Zhejiang University"> &nbsp;
-  <img src="assets/ant-group-symbol.png" height="28" alt="Ant Group"> &nbsp;
-  <img src="assets/shanghai-ai-lab-symbol.png" height="25" alt="Shanghai Artificial Intelligence Laboratory"> &nbsp;
-  <img src="assets/shanghai-jiao-tong-symbol.png" height="28" alt="Shanghai Jiao Tong University">
+<p align="center">
+  <a href="https://pork-pay.github.io/ECG-RSI/#evolution"><img src="assets/ecg-evolution.gif" width="100%" alt="ECG-RSI evolution loop — schematic"></a>
 </p>
 
-<p>
-      <sup>1</sup> Zhejiang University · <sup>2</sup> Ant Group ·
-      <sup>3</sup> Shanghai Artificial Intelligence Laboratory · <sup>4</sup> Shanghai Jiao Tong University</p>
+<p align="center">
+  <strong>The best teaching strategy changes as the learner improves.</strong><br>
+  Check learning gains on independent benchmarks.<br>
+  <a href="https://pork-pay.github.io/ECG-RSI/#evolution">Explore the interactive walkthrough →</a>
+</p>
 
-<sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.
+## Results
 
-## Materials
+Qwen3.5-35B-A3B, after three rounds.
 
-This repository provides the paper, LaTeX source and static project page. Training/synthesis implementation, model weights and training data are not included.
+| Mean metric | Base | ECG-RSI |
+|:--|--:|--:|
+| QA accuracy (%) | 34.57 | **56.04** |
+| Classification F1 (0–100) | 24.27 | **34.03** |
 
-Preview locally: `python3 -m http.server 8000`, then open `http://localhost:8000`. No build step is required.
+[Full results and comparisons →](https://pork-pay.github.io/ECG-RSI/#findings)
 
-Related: [MedEvo](https://pork-pay.github.io/MedEvo/) preserves and repairs medical reasoning trajectories.
+## Release plan
+
+| Item | Status |
+|:--|:--|
+| Paper (PDF) | ✅ [Available](papers/ecg-rsi.pdf) |
+| Project page & interactive demo | ✅ [Available](https://pork-pay.github.io/ECG-RSI/) |
+| arXiv posting | 🔜 In progress |
+| Discovered programs | ⏳ Being prepared |
+| Full codebase | ⏳ Being prepared |
+| Reproduction scripts | ⏳ Being prepared |
+
+Related project: [MedEvo](https://pork-pay.github.io/MedEvo/)
 
 <details>
 <summary>Citation</summary>
