@@ -46,7 +46,7 @@ Qwen3.5-35B-A3B; main trajectory R-A. S7 averages four accuracy and three F1 sco
       <span><a href="https://openreview.net/profile?id=~Zhihong_Lu2">Zhihong Lu</a><sup>2</sup></span>,
       <span><a href="https://openreview.net/profile?id=~Hao_Jin4">Hao Jin</a><sup>1</sup></span>,
       <span><a href="https://openreview.net/profile?id=~Jian_Wang25">Jian Wang</a><sup>2</sup></span>,
-      <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>3,4,†</sup></span>
+      <span><a href="https://openreview.net/profile?id=~Lijun_Wu1">Lijun Wu</a><sup>2,3,†</sup></span>
     </p>
 
 <p>
